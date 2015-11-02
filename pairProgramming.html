@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pair Programming Generator</title>
+</head>
+<body>
+	<h1>Pair Programming Generator</h1>
+	<table>
+		<thead>
+			<td>Partner 1</td>
+			<td>Partner 2</td>
+		</thead>
+		<tbody id="tableBody">
+			
+		</tbody>
+	</table>
+
+	<script type="text/javascript">
+		(function(){
+
+			var students = ["Beth Taylor", "Karen Wong", "Cat Liaw", "Bommy Cha", "Clarissa Chin", "Sandra You", "Tatiana Aroca", "Mina Yoon", "Krisha Nalavadi", "E'yonnie Scott", "Shannon Anahata", "Maggie Yang", "Ashley Chang", "Arushi Jaiswal", "Betty Chou", "Tira McDonald", "Ruth Pardee", "Sara LeFort", "Gunjan Amarnani"];
+			console.log("students: ", students);
+			//Source: http://stackoverflow.com/questions/5915096/get-random-item-from-javascript-array
+			var studentArrayLength = students.length;
+			console.log("studentArrayLength: ", studentArrayLength);
+			var counter = 0;
+			while (students.length > 0){
+				console.log("counter: ", counter);
+				var student = students.splice(Math.floor(Math.random()*students.length), 1);
+				var student2 = students.splice(Math.floor(Math.random()*students.length), 1);
+				//var tableBody = document.;
+				var studentRow = document.createElement("tr");
+				studentRow.setAttribute("id", "tr"+counter);
+				document.getElementById("tableBody").appendChild(studentRow);
+				var studentData = document.createElement("td");
+				studentData.innerText = student;
+				var studentData2 = document.createElement("td");
+				studentData2.innerText = student2;
+				document.getElementById("tr"+counter).appendChild(studentData);
+				document.getElementById("tr"+counter).appendChild(studentData2);
+				counter += 1;
+				//console.log("random student: ", student);
+			}
+
+		})();
+
+		
+		
+	</script>
+</body>
+</html>
